@@ -1,10 +1,24 @@
-.sideBar {
+main {
+  width: 1440px;
+}
+
+.container {
+  width: 1440px;
+  display: flex;
+  margin-left: 64px;
+}
+
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
+  width: 360px;
   height: 100%;
+  overflow-y: hidden;
+  z-index: 1000;
 }
 
-.main {
-  margin-left: 360px;
+.catalog {
+  padding-left: 64px;
+  flex-grow: 1;
 }

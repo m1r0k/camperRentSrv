@@ -21,6 +21,10 @@
   --hover: #d84343;
 }
 
+body {
+  width: 1440px;
+}
+
 a {
   font-weight: 500;
   color: var(--black);
@@ -80,6 +84,7 @@ button:hover {
   border: none;
   background-color: var(--hover);
   transition: 500ms;
+  color: var(--white);
 }
 
 button:focus,
@@ -94,4 +99,9 @@ li {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+svg {
+  stroke: transparent;
+  fill: transparent;
 }

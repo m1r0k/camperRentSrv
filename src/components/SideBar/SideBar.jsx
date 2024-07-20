@@ -51,10 +51,13 @@ export default function SideBar() {
       {({ values, handleChange }) => (
         <Form className={css.div}>
           <ul>
-            <li>
+            <li className={css.location}>
               <p className={css.label}>Location</p>
-              <div>
-                <Icon icon="fluent:location-28-regular" />
+              <div className={css.inputContainer}>
+                <Icon
+                  icon="fluent:location-28-regular"
+                  className={css.inputIcon}
+                />
                 <Field
                   type="text"
                   name="location"
@@ -64,17 +67,18 @@ export default function SideBar() {
                     handleLocationChange(e);
                   }}
                   value={values.location}
+                  className={css.inputField}
                 />
               </div>
             </li>
             <li>
-              <p>Filters</p>
-              <ul>
+              <p className={css.label}>Filters</p>
+              <ul className={css.filterButtons}>
                 <li>
                   <p>Vehicle equipment</p>
                   <hr />
                   <div className={css.checkboxContainer}>
-                    <label className={css.label}>
+                    <label className={css.box}>
                       <Field
                         type="checkbox"
                         name="ac"
@@ -85,10 +89,13 @@ export default function SideBar() {
                         }}
                         checked={values.ac > 0}
                       />
-                      <Icon icon="fluent:weather-squalls-20-regular" />
+                      <Icon
+                        icon="fluent:weather-squalls-20-regular"
+                        className={css.icon}
+                      />
                       <span>AC</span>
                     </label>
-                    <label className={css.label}>
+                    <label className={css.box}>
                       <Field
                         type="checkbox"
                         name="transmission"
@@ -99,10 +106,13 @@ export default function SideBar() {
                         }}
                         checked={values.transmission === "automatic"}
                       />
-                      <Icon icon="tabler:automatic-gearbox" />
+                      <Icon
+                        icon="tabler:automatic-gearbox"
+                        className={css.icon}
+                      />
                       <span>Automatic</span>
                     </label>
-                    <label className={css.label}>
+                    <label className={css.box}>
                       <Field
                         type="checkbox"
                         name="kitchen"
@@ -113,10 +123,13 @@ export default function SideBar() {
                         }}
                         checked={values.kitchen > 0}
                       />
-                      <Icon icon="tabler:tools-kitchen-2" />
+                      <Icon
+                        icon="tabler:tools-kitchen-2"
+                        className={css.icon}
+                      />
                       <span>Kitchen</span>
                     </label>
-                    <label className={css.label}>
+                    <label className={css.box}>
                       <Field
                         type="checkbox"
                         name="tv"
@@ -127,10 +140,10 @@ export default function SideBar() {
                         }}
                         checked={values.tv > 0}
                       />
-                      <Icon icon="gala:tv" />
+                      <Icon icon="gala:tv" className={css.icon} />
                       <span>TV</span>
                     </label>
-                    <label className={css.label}>
+                    <label className={css.box}>
                       <Field
                         type="checkbox"
                         name="shower"
@@ -141,7 +154,7 @@ export default function SideBar() {
                         }}
                         checked={values.shower > 0}
                       />
-                      <Icon icon="lucide:shower-head" />
+                      <Icon icon="lucide:shower-head" className={css.icon} />
                       <span>Shower/WC</span>
                     </label>
                   </div>
@@ -149,62 +162,102 @@ export default function SideBar() {
                 <li>
                   <p>Vehicle type</p>
                   <hr />
-                  <label>
-                    <Field
-                      type="radio"
-                      name="vehicleType"
-                      value="van"
-                      className={css.radio}
-                      onChange={(e) => {
-                        handleChange(e);
-                        handleRadioChange(e);
+                  <div className={css.checkboxContainer}>
+                    <label
+                      className={css.itemOne}
+                      style={{
+                        padding: "19.5px 30px",
                       }}
-                      checked={values.vehicleType === "van"}
-                    />
-                    <svg className={css.svg}>
-                      <use href="../../assets/icons/van.svg"></use>
-                    </svg>
-                    <span>Van</span>
-                  </label>
-                  <label>
-                    <Field
-                      type="radio"
-                      name="vehicleType"
-                      value="fully"
-                      className={css.radio}
-                      onChange={(e) => {
-                        handleChange(e);
-                        handleRadioChange(e);
+                    >
+                      <Field
+                        type="radio"
+                        name="vehicleType"
+                        value="van"
+                        className={css.radio}
+                        onChange={(e) => {
+                          handleChange(e);
+                          handleRadioChange(e);
+                        }}
+                        checked={values.vehicleType === "van"}
+                      />
+                      <svg
+                        className={css.svg}
+                        style={{
+                          width: "40px",
+                          height: "28px",
+                          fill: "#101828",
+                        }}
+                      >
+                        <use href="../../assets/icons/van.svg"></use>
+                      </svg>
+                      <span>Van</span>
+                    </label>
+                    <label
+                      className={css.itemTwo}
+                      style={{
+                        padding: "9.5px 24px",
                       }}
-                      checked={values.vehicleType === "fullyIntegrated"}
-                    />
-                    <svg className={css.svg}>
-                      <use href="../../assets/icons/fully.svg"></use>
-                    </svg>
-                    <span>Fully Integrated</span>
-                  </label>
-                  <label>
-                    <Field
-                      type="radio"
-                      name="vehicleType"
-                      value="alcove"
-                      className={css.radio}
-                      onChange={(e) => {
-                        handleChange(e);
-                        handleRadioChange(e);
+                    >
+                      <Field
+                        type="radio"
+                        name="vehicleType"
+                        value="fully"
+                        className={css.radio}
+                        onChange={(e) => {
+                          handleChange(e);
+                          handleRadioChange(e);
+                        }}
+                        checked={values.vehicleType === "fullyIntegrated"}
+                      />
+                      <svg
+                        className={css.svg}
+                        style={{
+                          width: "40px",
+                          height: "28px",
+                          fill: "#101828",
+                        }}
+                      >
+                        <use href="../../assets/icons/fully.svg"></use>
+                      </svg>
+                      <span>Fully Integrated</span>
+                    </label>
+                    <label
+                      className={css.itemThree}
+                      style={{
+                        padding: "19.5px 30px",
                       }}
-                      checked={values.vehicleType === "alcove"}
-                    />
-                    <svg className={css.svg}>
-                      <use href="../../assets/icons/alcove.svg"></use>
-                    </svg>
-                    <span>Alcove</span>
-                  </label>
+                    >
+                      <Field
+                        type="radio"
+                        name="vehicleType"
+                        value="alcove"
+                        className={css.radio}
+                        onChange={(e) => {
+                          handleChange(e);
+                          handleRadioChange(e);
+                        }}
+                        checked={values.vehicleType === "alcove"}
+                      />
+                      <svg
+                        className={css.svg}
+                        style={{
+                          width: "40px",
+                          height: "28px",
+                          fill: "#101828",
+                        }}
+                      >
+                        <use href="../../assets/icons/alcove.svg"></use>
+                      </svg>
+                      <span>Alcove</span>
+                    </label>
+                  </div>
                 </li>
               </ul>
             </li>
           </ul>
-          <button type="submit">Submit</button>
+          <button type="submit" className={css.btn}>
+            Submit
+          </button>
         </Form>
       )}
     </Formik>

@@ -42,16 +42,20 @@ export default function CamperCard({ camper }) {
           <li>{camper.name}</li>
           <li>
             <ul className={css.nameitems}>
-              <li>
+              <li className={css.price}>
                 <span>€ </span>
                 {camper.price.toFixed(2)}
               </li>
               <li>
                 <button
                   onClick={handleFavoriteToggle}
-                  className={isFavorite ? css.isFavorite : css.favorite}
+                  className={css.isFavorite}
                 >
-                  <Icon icon="bx:heart" className={css.heart} />
+                  {isFavorite ? (
+                    <Icon icon="bxs:heart" className={css.favoriteHeart} />
+                  ) : (
+                    <Icon icon="bx:heart" className={css.heart} />
+                  )}
                 </button>
               </li>
             </ul>

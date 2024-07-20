@@ -1,0 +1,127 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 100%;
+  background-color: rgba(17, 18, 19, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--white);
+  border-radius: 20px;
+  width: 982px;
+  height: 720px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  padding: 40px;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modalContent {
+  flex: 1;
+  overflow-y: auto;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  padding-bottom: 8px;
+}
+
+.rating {
+  display: flex;
+  column-gap: 16px;
+  padding-bottom: 16px;
+}
+
+.rating > li > svg {
+  width: 16px;
+  height: 16px;
+}
+
+.star {
+  align-items: center;
+  display: flex;
+  column-gap: 4px;
+}
+
+.star > span {
+  text-decoration: underline;
+}
+
+.star > svg {
+  color: var(--yellow);
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.gallery {
+  display: flex;
+  column-gap: 16px;
+  margin: 20px 0; /* Adjust as needed for spacing */
+}
+
+.img {
+  width: 290px;
+  height: 310px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.scrollContent {
+  max-height: 450px;
+  overflow: auto;
+  padding-bottom: 44px;
+}
+
+.navBar {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+}
+
+.navBtns {
+  display: flex;
+  padding-bottom: 24px;
+}
+
+.btn {
+  background-color: transparent;
+  color: var(--black);
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background-color: transparent;
+  color: var(--black);
+  text-decoration: underline var(--red);
+}
+
+.line {
+  margin: 0;
+  width: 902px;
+}

@@ -35,7 +35,11 @@
   align-items: center;
 }
 
-.favorite,
+.price {
+  width: 136px;
+  text-align: end;
+}
+
 .isFavorite {
   width: 24px;
   height: 24px;
@@ -45,12 +49,24 @@
   align-items: center;
 }
 
-.favorite {
+.isFavorite:hover,
+.isFavorite:focus,
+.isFavorite:focus-visible {
+  background-color: var(--white);
+}
+
+.heart {
   color: var(--black);
 }
 
-.isFavorite {
+.favoriteHeart {
+  stroke: var(--red);
   color: var(--red);
+}
+
+.isFavorite:active {
+  color: var(--red);
+  stroke: var(--red);
 }
 
 .heart {
@@ -121,4 +137,11 @@ svg {
 
 .btn {
   width: 166px;
+}
+
+.details > li > svg {
+  fill: var(--black);
+  color: var(--black);
+
+  stroke: var(--black);
 }

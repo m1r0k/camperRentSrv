@@ -1,4 +1,141 @@
+.div {
+  width: 360px;
+}
+.location {
+  padding-bottom: 32px;
+}
+
+.inputContainer {
+  width: 360px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: var(--light-blue);
+  padding: 18px;
+  gap: 10px;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 10px; /* Adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--black);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.inputField {
+  padding-left: 20px;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+.label {
+  color: var(--black);
+  opacity: 0.6;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.filterButtons {
+  padding-top: 14px;
+  padding-bottom: 32px;
+}
+
+.filterButtons > li {
+  padding-bottom: 32px;
+}
+
+.filterButtons > li > p {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  padding-bottom: 24px;
+}
+
+.filterButtons > li > hr {
+  margin: 0;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 10px;
+  padding-top: 20px;
+}
+
 .checkbox,
 .radio {
   display: none;
+}
+
+.box,
+.itemOne,
+.itemTwo,
+.itemThree {
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 70px;
+  text-align: center;
+  row-gap: 8px;
+}
+
+.box {
+  width: 112px;
+  height: 95px;
+  padding-top: 17.5px;
+  padding-bottom: 17.5px;
+}
+
+.itemOne,
+.itemTwo,
+.itemThree {
+  padding: 19.5px 30px;
+  justify-content: center;
+  width: 100px;
+}
+
+.itemTwo {
+  padding: 9.5px 24px;
+  width: 128px;
+}
+
+.itemThree {
+  width: 112px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.box:hover,
+.box:focus,
+.box:active,
+.itemOne:hover,
+.itemOne:focus,
+.itemOne:active,
+.itemTwo:hover,
+.itemTwo:focus,
+.itemTwo:active,
+.itemThree:hover,
+.box:focus,
+.box:active {
+  border-color: var(--red);
+}
+
+.btn {
+  width: 173px;
+  height: 56px;
+  padding: 16px 60px;
+  line-height: 24px;
+  letter-spacing: -0.08px;
 }

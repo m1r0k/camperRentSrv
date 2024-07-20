@@ -1,8 +1,21 @@
-.catalog {
-  padding: 20px;
-}
-
 .camperList {
   display: grid;
   gap: 32px;
+}
+
+.btn {
+  width: 145px;
+  height: 56px;
+  border: 1px solid rgba(71, 84, 103, 0.2);
+  background-color: transparent;
+  color: var(--black);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn:hover {
+  border: 1px solid;
+  color: var(--black);
+  border-color: var(--hover);
+  background-color: transparent;
 }

@@ -1,34 +1,31 @@
-import css from "./App.module.css";
-import ContactForm from "../ContactForm/ContactForm";
-import ContactList from "../ContactList/ContactList";
-import SearchBox from "../SearchBox/SearchBox";
-import Layout from "../Layout/Layout";
-import Error from "../Error/Error";
-import Loader from "../Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contactsOps";
-import { selectError, selectLoading } from "../../redux/contactsSlice";
-import { Toaster } from "react-hot-toast";
-
+import { Routes, Route } from "react-router-dom";
+import { Navigation } from "../NavBar/NavBar";
+import { lazy } from "react";
+import Features from "../Features/Features";
+import Reviews from "../Reviews/Reviews";
+const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("../../pages/CatalogPage/CatalogPage"));
+const FavoritesPage = lazy(() =>
+  import("../../pages/FavoritesPage/FavoritesPage")
+);
+const NotFoundPage = lazy(() =>
+  import("../../pages/NotFoundPage/NotFoundPage")
+);
 export default function App() {
-  const dispatch = useDispatch();
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <Layout>
-      <h1 className={css.header}>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {error && <Error>Something went wrong! Please reload.</Error>}
-      {loading && <Loader />}
-      <ContactList />
-      <Toaster />
-    </Layout>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<HomePage />} />
+        <Route path="/catalog" element={<CatalogPage />}>
+          <Route path="features" element={<Features />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+        <Route path="/favorites" element={<FavoritesPage />}>
+          <Route path="features" element={<Features />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }

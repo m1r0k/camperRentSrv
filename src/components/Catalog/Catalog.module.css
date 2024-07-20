@@ -1,0 +1,8 @@
+.catalog {
+  padding: 20px;
+}
+
+.camperList {
+  display: grid;
+  gap: 32px;
+}

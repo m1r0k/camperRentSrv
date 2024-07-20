@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  padding: 16px;
+  justify-content: center;
+  background: rgba(240, 240, 240, 0.5);
+}
+
+.list {
+  display: flex;
+  gap: 24px;
+}
+
+.item,
+.navlink {
+  color: var(--black);
+}
+
+.active,
+.item :hover,
+:focus,
+:active {
+  color: var(--hover);
+  transition: 250ms;
+}

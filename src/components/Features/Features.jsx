@@ -1,10 +1,9 @@
 import { Icon } from "@iconify/react";
 import css from "./Features.module.css";
-import RentForm from "../RentForm/RentForm";
 
 export default function Features({ camper }) {
   return (
-    <div>
+    <div className={css.container}>
       <ul className={css.details}>
         <li>
           <svg>
@@ -67,8 +66,11 @@ export default function Features({ camper }) {
         <li>
           {camper.details.hob > 0 && (
             <>
-              <svg>
-                <use href="../../assets/icons/hob.svg"></use>
+              <svg className={css.icon}>
+                <use
+                  href="../../assets/icons/hob.svg"
+                  className={css.icon}
+                ></use>
               </svg>
               <span> {camper.details.hob} hob</span>
             </>
@@ -93,9 +95,7 @@ export default function Features({ camper }) {
         <li>
           {camper.details.freezer > 0 && (
             <>
-              <svg>
-                <use href="../../assets/icons/freezer.svg"></use>
-              </svg>
+              <Icon icon="arcticons:freezer" className={css.icon} />
               <span> Freezer</span>
             </>
           )}
@@ -165,7 +165,6 @@ export default function Features({ camper }) {
           </li>
         </ul>
       </div>
-      <RentForm />
     </div>
   );
 }

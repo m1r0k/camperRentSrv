@@ -80,7 +80,7 @@ export default function RentForm({ hero }) {
             />
           </div>
         </div>
-        <button type="submit" style="filled">
+        <button type="submit" className={css.btn}>
           Send
         </button>
         <Toaster position="top-center" />

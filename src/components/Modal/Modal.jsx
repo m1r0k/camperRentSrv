@@ -1,6 +1,6 @@
 import { Icon } from "@iconify/react";
 import css from "./Modal.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RentForm from "../RentForm/RentForm";
 import Features from "../Features/Features";
 import Reviews from "../Reviews/Reviews";
@@ -8,33 +8,21 @@ import Reviews from "../Reviews/Reviews";
 export default function Modal({ camper, onClose }) {
   const [section, setSection] = useState(null);
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Escape") {
-      onClose();
-    }
+  const handleClass = (e) => {
+    const query = document.querySelectorAll("#navBtn");
+
+    if (query.length) query.forEach((el) => el.classList.remove(css.active));
+
+    e.target.classList.add(css.active);
   };
 
-  const handleClickOutside = (event) => {
-    if (event.target.id === "modal-overlay") {
-      onClose();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
-
-  const handleFeatures = () => {
+  const handleFeatures = (e) => {
+    handleClass(e);
     setSection("features");
   };
 
-  const handleReviews = () => {
+  const handleReviews = (e) => {
+    handleClass(e);
     setSection("reviews");
   };
 
@@ -90,7 +78,7 @@ export default function Modal({ camper, onClose }) {
                 Reviews
               </button>
             </nav>
-            <hr className={css.line} />
+            <hr />
             {section && (
               <div className={css.container}>
                 {section === "features" && <Features camper={camper} />}

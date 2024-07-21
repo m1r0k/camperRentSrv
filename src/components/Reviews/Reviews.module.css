@@ -1,0 +1,39 @@
+.container {
+  width: 430px;
+}
+
+.reviewHeader {
+  display: flex;
+  gap: 16px;
+}
+
+.reviewerInitial {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px 0px 0px 0px;
+  background-color: var(--blue);
+  color: var(--red);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: center;
+  align-items: center;
+}
+
+.reviewerName {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.comment {
+  font-size: 16px;
+}

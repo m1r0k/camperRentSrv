@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import css from "./Reviews.module.css";
 
-export default function Reviews({ camper }) {
+export default function Reviews({ reviews }) {
   const renderStars = (rating) => {
     const totalStars = 5;
     const yellowStars = Math.round(rating);
@@ -10,36 +10,29 @@ export default function Reviews({ camper }) {
       <Icon
         key={index}
         icon="tabler:star-filled"
-        style={{ color: index < yellowStars ? css.yellow : css.grey }}
+        style={{ color: index < yellowStars ? css.yellow : css.blue }}
       />
     ));
   };
 
   return (
-    <div>
-      {camper.reviews.length > 0 ? (
-        <ul>
-          {camper.reviews.map(({ review, index }) => (
-            <li key={index}>
-              <div>
-                {review.reviewer_name.charAt(0)}
-                <div>
-                  <p>{review.reviewer_name} </p>
-                  <div>
-                    {renderStars(review.reviewer_rating)}
-                    <span>
-                      {review.reviewer_rating} ({camper.reviews.length} Reviews)
-                    </span>
-                  </div>
-                </div>
+    <div className={css.container}>
+      {reviews.map((review, index) => (
+        <div key={index} className={css.reviewContainer}>
+          <div className={css.reviewHeader}>
+            <div className={css.reviewerInitial}>
+              {review.reviewer_name.charAt(0)}
+            </div>
+            <div className={css.reviewContent}>
+              <p className={css.reviewerName}>{review.reviewer_name}</p>
+              <div className={css.starsAndRating}>
+                {renderStars(review.reviewer_rating)}
               </div>
-              <p>{review.comment} </p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>We don`t have any reviews for this campervan</p>
-      )}
+            </div>
+          </div>
+          <p className={css.comment}>{review.comment}</p>
+        </div>
+      ))}
     </div>
   );
 }
